@@ -1,0 +1,1 @@
+{"name":"Verplaatsen","on":{"workflow_dispatch":{}},"permissions":{"contents":"write"},"jobs":{"move":{"runs-on":"ubuntu-latest","steps":[{"uses":"actions/checkout@v4"},{"run":"git mv ./*.jpg media/Foto/ && git config user.name github-actions && git config user.email actions@github.com && git commit -m 'Foto verplaatst naar media/Foto' && git push"}]}}}
