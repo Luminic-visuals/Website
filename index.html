@@ -60,7 +60,7 @@ body[data-v=home] #keuze{display:grid}
 @media(prefers-reduced-motion:reduce){.tile::before{transition:none}}
 /* galerijen */
 #gal{flex:1;padding:0 clamp(16px,4vw,48px)}
-#grid{columns:3 320px;column-gap:6px}
+#grid{columns:260px;column-gap:6px}@media(max-width:700px){#grid{columns:2}}
 #grid.v{columns:auto;display:flex;flex-wrap:wrap;gap:6px} #grid.v::after{content:"";flex-grow:1000000}
 .item{display:block;width:100%;margin:0 0 6px;padding:0;border:0;background:var(--ph);cursor:zoom-in;position:relative;break-inside:avoid;color:#fff}
 .v .item{margin:0;height:min(44vh,400px);min-width:0;flex:calc(var(--ar,1.7778) * 100) 1 calc(var(--ar,1.7778) * min(44vh,400px))} .v .item video{display:block;width:100%;height:100%;object-fit:cover} @media(max-width:700px){.v .item{height:auto;aspect-ratio:var(--ar,1.7778);flex:1 1 100%}}
