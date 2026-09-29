@@ -4,3 +4,5 @@ over: Luminic Visuals maakt foto en video voor motoren, auto's, events en muziek
 logo: midden
 # Quote op de startpagina onder het logo. Leeg laten = geen quote.
 quote: REALITEIT IN BEELD
+# Logo-stijl over de video: contrast (standaard, kleur tegengesteld aan het beeld), zacht (meegemengd), intro (verdwijnt na de intro) of klassiek (klein).
+logostijl: contrast
