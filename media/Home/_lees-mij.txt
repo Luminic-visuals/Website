@@ -1,0 +1,1 @@
+Zet hier je showreel voor de homepagina: één mp4 (zonder geluid, 15-30 sec, 1080p, liefst onder 15 MB). Optioneel: dezelfde bestandsnaam als .jpg voor een poster. Dit bestand wordt genegeerd.

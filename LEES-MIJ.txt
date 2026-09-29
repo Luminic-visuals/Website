@@ -1,0 +1,30 @@
+LUMINIC VISUALS: WERKWIJZE
+
+DAGELIJKS: NIEUW MATERIAAL TOEVOEGEN
+1. Ga naar je GitHub-repository > map media/Foto (of media/Video, media/Home).
+2. Add file > Upload files, sleep je bestanden erin, Commit changes.
+3. Klaar. De site bouwt zichzelf en staat binnen ±1 minuut live.
+
+Foto's: jpg, liefst max. ±2400 px lang. Volgorde op bestandsnaam (01.jpg, 02.jpg, ...). Submappen mogen.
+Video's: mp4 in media/Video. Poster: zelfde naam als .jpg (clip.mp4 + clip.jpg).
+YouTube (aanrader voor grote video's): regel 'link | titel' in media/Video/youtube.txt (in GitHub: bestand openen > potlood-icoon).
+Homepagina-video: één mp4 in media/Home, 15-30 sec, 1080p, zonder geluid, liefst < 15 MB.
+Teksten en logo-plaatsing: media/site.txt. Logo: assets/logo-header.svg.
+
+LIMIETEN
+- Uploaden via de GitHub-website: max. 25 MB per bestand en 100 bestanden per keer.
+  Groter (tot 100 MB per bestand) kan met GitHub Desktop.
+- Cloudflare Pages: max. 25 MB per bestand op de site. Grotere video's dus via YouTube.
+
+EENMALIGE SETUP (aanbevolen: GitHub + Cloudflare Pages, gratis, onbeperkt verkeer)
+1. Maak een GitHub-account en een nieuwe repository. Upload de inhoud van deze map (Add file > Upload files).
+2. Maak een Cloudflare-account. Workers & Pages > Create > Pages > Connect to Git > kies je repository.
+   Build command: node build.js    Build output directory: dist
+3. Domein koppelen: in het Pages-project > Custom domains > luminic.be toevoegen en de stappen volgen.
+   LET OP: houd de e-mailinstellingen (MX-records) van luminic.be intact als je de DNS verplaatst.
+4. Pas als de nieuwe site live werkt: het Adobe Portfolio-abonnement opzeggen.
+
+ALTERNATIEF: Netlify. netlify.toml staat klaar. De gratis Netlify-versie heeft een limiet van 300 credits per maand
+(ongeveer 15 GB verkeer, elke publicatie kost 15 credits), waarna de site pauzeert. Minder geschikt voor een site met video.
+
+LOKAAL TESTEN (Node.js nodig): node build.js en open dist/index.html.

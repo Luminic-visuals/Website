@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luminic Visuals | Foto & Video</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:image" content="assets/logo.png">
+<meta name="description" content="Foto en video door Luminic Visuals: motoren, auto's, events en muziek.">
+<meta property="og:title" content="Luminic Visuals | Foto & Video"><meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Luminic Visuals","url":"https://luminic.be","email":"info@luminic.be","sameAs":["https://www.instagram.com/shots_by_nico/","https://www.tiktok.com/@shots_by_nico","https://www.youtube.com/@shots_by_nico"]}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&display=swap">
+<style>
+:root{--bg:#F5F6F7;--ink:#14181D;--mute:#7A838D;--ph:#E3E6E9}
+@media(prefers-color-scheme:dark){:root{--bg:#101316;--ink:#ECEEF0;--mute:#8C96A1;--ph:#1B2026}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 Archivo,system-ui,sans-serif;min-height:100svh;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:-4px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px clamp(16px,4vw,48px)}
+.logo{font:800 20px/1 Archivo;font-stretch:75%;letter-spacing:.08em}
+.logo img{display:block;height:40px;width:auto;filter:invert(1)}
+@media(prefers-color-scheme:dark){.logo img{filter:invert(1)}}
+nav{display:flex;gap:24px}
+nav a{color:rgba(255,255,255,.78);padding-bottom:3px;border-bottom:2px solid transparent;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+nav a:hover{color:#fff}
+nav a[aria-current]{color:#fff;border-color:#fff}
+/* landing */
+#gal,#ct{display:none}
+body[data-v=foto] #gal,body[data-v=video] #gal{display:block}
+body[data-v=contact] #ct{display:block}
+#ct{flex:1;padding:8vh clamp(16px,4vw,48px)}
+#ct h1{font:800 clamp(36px,7vw,96px)/1 Archivo;font-stretch:75%}
+#ct .big{display:block;font:700 clamp(22px,5vw,64px)/1.1 Archivo;font-stretch:80%;margin:28px 0;word-break:break-word}
+#over{max-width:52ch;font-size:18px;color:var(--mute)}
+#home{display:none;position:relative;height:100svh;min-height:420px;background:#0b0d0f}
+body[data-v=home] #home{display:block}
+#home video{width:100%;height:100%;object-fit:cover;display:block}
+#home .hl{display:none;position:absolute;z-index:1;height:auto;opacity:.9;filter:invert(1) drop-shadow(0 2px 22px rgba(0,0,0,.35));pointer-events:none;animation:lf 1.6s ease .4s backwards}
+@keyframes lf{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){#home .hl{animation:none}}
+body[data-logo=midden] #home .hl{display:block;inset:0;margin:auto;width:clamp(140px,22vw,250px)}
+body[data-logo=linksonder] #home .hl{display:block;left:clamp(16px,4vw,48px);bottom:clamp(64px,10vh,110px);width:min(56vw,620px)}
+#home.no video{display:none}
+.bar{position:fixed;top:0;left:0;right:0;z-index:10;height:calc(80px + env(safe-area-inset-top));padding:env(safe-area-inset-top) clamp(16px,4vw,48px) 0;}
+.bar::before{content:"";position:absolute;inset:0 0 -44px 0;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.42) 35%,rgba(0,0,0,.18) 70%,rgba(0,0,0,0) 100%)}
+body[data-v=home]{padding-top:0}
+body:not([data-v=home]){padding-top:calc(80px + env(safe-area-inset-top))}
+#keuze{scroll-margin-top:80px}
+.down{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:none;border:0;cursor:pointer;padding:12px 18px;opacity:.85;z-index:2}
+.down:hover{opacity:1}
+#keuze{display:none;grid-template-columns:1fr 1fr;gap:6px;padding:6px}
+body[data-v=home] #keuze{display:grid}
+.tile{position:relative;display:grid;place-items:center;min-height:62svh;overflow:hidden}
+.tile::before{content:"";position:absolute;inset:0;background:var(--img) center/cover;opacity:.3;transition:transform .7s ease}
+.tile:hover::before,.tile:focus-visible::before{transform:scale(1.05)}
+.tile b{position:relative;font:800 clamp(56px,11vw,170px)/1 Archivo;font-stretch:75%;letter-spacing:.02em}
+.tile.l{background:#E9EBED;color:#14181D}.tile.r{background:#14181D;color:#ECEEF0}
+@media(max-width:700px){#keuze{grid-template-columns:1fr}.tile{min-height:38svh}}
+@media(prefers-reduced-motion:reduce){.tile::before{transition:none}}
+/* galerijen */
+#gal{flex:1;padding:0 clamp(16px,4vw,48px)}
+#grid{columns:3 320px;column-gap:6px}
+#grid.v{columns:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:6px}
+.item{display:block;width:100%;margin:0 0 6px;padding:0;border:0;background:var(--ph);cursor:zoom-in;position:relative;break-inside:avoid;color:#fff}
+.v .item{margin:0;aspect-ratio:16/9}
+.item img{display:block;width:100%;height:auto}
+.v .item img{height:100%;object-fit:cover}
+.item .play{position:absolute;inset:0;display:grid;place-items:center;font-size:36px;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+.item .t{position:absolute;left:12px;bottom:10px;font-size:14px;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+#empty{color:var(--mute)}
+footer{display:flex;flex-wrap:wrap;gap:6px 24px;padding:40px clamp(16px,4vw,48px) 28px;color:var(--mute);font-size:14px}
+footer a:hover{color:var(--ink)}
+body[data-v=home] footer{padding:18px clamp(16px,4vw,48px)}
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:#fff}
+dialog::backdrop{background:rgba(8,10,12,.95)}
+.lb{height:100%;display:grid;grid-template-rows:1fr auto;padding:56px 64px 20px}
+.stage{min-height:0;display:grid;place-items:center}
+.stage img,.stage video{max-width:100%;max-height:100%;object-fit:contain}
+.stage iframe{width:min(100%,1200px);aspect-ratio:16/9;border:0}
+.cap{text-align:center;padding-top:10px;opacity:.8}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:34px;cursor:pointer;padding:10px 16px;line-height:1}
+.lb .x{top:8px;right:8px}.lb .p{left:4px;top:50%}.lb .n{right:4px;top:50%}
+@media(max-width:600px){.lb{padding:56px 8px 16px}.lb .p,.lb .n{top:auto;bottom:6px}}
+</style>
+</head>
+<body data-v="home">
+<header class="bar"><a class="logo" href="#" aria-label="Luminic Visuals, naar start"><img src="assets/logo-header.svg" alt="Luminic Visuals"></a>
+  <nav><a href="#foto" data-n="foto">Foto</a><a href="#video" data-n="video">Video</a><a href="#contact" data-n="contact">Contact</a></nav></header>
+<div id="home"><video id="hv" muted loop playsinline preload="auto" aria-hidden="true"></video><img class="hl" src="assets/logo-header.svg" alt="Luminic">
+  <button class="down" id="dn" aria-label="Scroll naar foto en video"><svg width="28" height="14" viewBox="0 0 28 14" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M2 2l12 10L26 2"/></svg></button></div>
+<section id="keuze" aria-label="Kies foto of video"><a class="tile l" href="#foto" id="tf"><b>FOTO</b></a><a class="tile r" href="#video" id="tv"><b>VIDEO</b></a></section>
+<main id="ct"><h1>Laten we iets maken.</h1><a class="big" href="mailto:info@luminic.be">info@luminic.be</a><p id="over"></p></main>
+<main id="gal"><div id="grid"></div><p id="empty" hidden>Binnenkort meer werk.</p></main>
+<footer>
+  <a href="mailto:info@luminic.be">info@luminic.be</a>
+  <a href="https://www.instagram.com/shots_by_nico/" rel="noopener">Instagram</a>
+  <a href="https://www.tiktok.com/@shots_by_nico" rel="noopener">TikTok</a>
+  <a href="https://www.youtube.com/@shots_by_nico" rel="noopener">YouTube</a>
+</footer>
+<dialog id="lb" aria-label="Weergave"><div class="lb">
+  <button class="x" aria-label="Sluiten">&times;</button>
+  <button class="p" aria-label="Vorige">&#8249;</button>
+  <button class="n" aria-label="Volgende">&#8250;</button>
+  <div class="stage" id="stage"></div><div class="cap" id="cap"></div>
+</div></dialog>
+<script src="media.js"></script>
+<script>
+const M = typeof MEDIA !== "undefined" ? MEDIA : {foto:[], video:[]};
+const $ = s => document.querySelector(s), grid = $("#grid"), lb = $("#lb"), stage = $("#stage");
+const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const thumb = i => i.type==="yt" ? `https://i.ytimg.com/vi/${i.src}/hqdefault.jpg` : i.type==="video" ? i.poster : i.src;
+let list = [], idx = 0;
+const S = typeof SITE !== "undefined" ? SITE : {};
+document.body.dataset.logo = ["midden","header","linksonder"].includes(S.logo) ? S.logo : "midden";
+if (S.over) $("#over").textContent = S.over;
+
+const bg = (el, it) => { const t = it && thumb(it); if (t) el.style.setProperty("--img", `url("${t}")`); };
+const hv = $("#hv"), homeEl = $("#home");
+bg($("#tf"), M.foto[0]); bg($("#tv"), M.video[0]);
+$("#dn").onclick = () => $("#keuze").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+if (S.heroPoster) hv.poster = S.heroPoster;
+if (S.hero && !matchMedia("(prefers-reduced-motion: reduce)").matches) hv.src = S.hero;
+else if (!S.heroPoster) homeEl.classList.add("no");
+
+function route(){
+  const h = location.hash.slice(1), v = ["foto","video","contact"].includes(h) ? h : "home";
+  document.body.dataset.v = v;
+  if (hv.getAttribute("src")) { if (v==="home") hv.play().catch(()=>{}); else hv.pause(); }
+  document.querySelectorAll("nav a").forEach(a => a.toggleAttribute("aria-current", a.dataset.n===v));
+  document.title = "Luminic Visuals" + ({foto:" | Foto",video:" | Video",contact:" | Contact"}[v] || "");
+  if (v==="home" || v==="contact") { scrollTo(0,0); return; }
+  list = M[h]; grid.className = h==="video" ? "v" : ""; grid.innerHTML = "";
+  list.forEach((it, n) => {
+    const b = document.createElement("button"), t = thumb(it);
+    b.className = "item"; b.setAttribute("aria-label", it.title || h);
+    if (t) { const img = new Image(); img.src = t; img.alt = it.title || ""; img.loading = "lazy"; img.decoding = "async"; b.append(img); }
+    else b.innerHTML = `<div style="min-height:200px"></div>`;
+    if (it.type) b.insertAdjacentHTML("beforeend", `<span class="play">&#9654;</span>` + (it.title ? `<span class="t">${esc(it.title)}</span>` : ""));
+    b.onclick = () => open(n);
+    grid.append(b);
+  });
+  $("#empty").hidden = list.length > 0; scrollTo(0,0);
+}
+function open(n){
+  idx = (n + list.length) % list.length;
+  const it = list[idx];
+  stage.innerHTML = it.type==="yt" ? `<iframe src="https://www.youtube-nocookie.com/embed/${esc(it.src)}?autoplay=1&rel=0" allow="autoplay;fullscreen" allowfullscreen title="${esc(it.title)}"></iframe>`
+    : it.type==="video" ? `<video src="${esc(it.src)}" poster="${esc(it.poster)}" controls autoplay playsinline></video>`
+    : `<img src="${esc(it.src)}" alt="">`;
+  $("#cap").textContent = it.title || "";
+  if (!lb.open) lb.showModal();
+}
+lb.querySelector(".x").onclick = () => lb.close();
+lb.querySelector(".p").onclick = () => open(idx-1);
+lb.querySelector(".n").onclick = () => open(idx+1);
+lb.addEventListener("close", () => stage.innerHTML = "");
+lb.addEventListener("click", e => { if (e.target===lb || e.target.classList.contains("stage")) lb.close(); });
+document.addEventListener("keydown", e => { if (lb.open) { if (e.key==="ArrowLeft") open(idx-1); if (e.key==="ArrowRight") open(idx+1); } });
+const hl = document.querySelector("#home .hl");
+addEventListener("scroll", () => { if (document.body.dataset.v === "home") hl.style.opacity = (.9 * (1 - Math.min(1, scrollY / (innerHeight * .5)))).toFixed(2); }, {passive:true});
+addEventListener("hashchange", route); route();
+</script>
+</body>
+</html>
