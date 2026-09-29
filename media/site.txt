@@ -6,3 +6,6 @@ logo: midden
 quote: REALITEIT IN BEELD
 # Logo-stijl over de video: contrast (standaard, kleur tegengesteld aan het beeld), zacht (meegemengd), intro (verdwijnt na de intro) of klassiek (klein).
 logostijl: contrast
+
+# Achtergrondfoto van de FOTO-knop op de startpagina: bestandsnaam uit media/Foto. Leeg = eerste foto.
+fotocover: _DSC4844.jpg
