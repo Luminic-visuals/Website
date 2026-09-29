@@ -109,13 +109,13 @@ dialog::backdrop{background:rgba(8,10,12,.95)}
 const M = typeof MEDIA !== "undefined" ? MEDIA : {foto:[], video:[]};
 const $ = s => document.querySelector(s), grid = $("#grid"), lb = $("#lb"), stage = $("#stage");
 const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const thumb = i => i.type==="yt" ? (i.poster || `https://i.ytimg.com/vi/${i.src}/hqdefault.jpg`) : !i.type ? i.src : i.poster;
+const thumb = i => i.type==="yt" ? (i.poster || `https://i.ytimg.com/vi/${i.src}/hqdefault.jpg`) : !i.type ? (i.thumb || i.src) : i.poster;
 let list = [], idx = 0;
 const S = typeof SITE !== "undefined" ? SITE : {};
 document.body.dataset.logo = ["midden","header","linksonder"].includes(S.logo) ? S.logo : "midden";
 if (S.over) $("#over").textContent = S.over; $("#q").textContent = "quote" in S ? S.quote : "REALITEIT IN BEELD"; $("#q2").textContent = $("#q").textContent; $("#igbtn").onclick = () => { $("#igbox").innerHTML = '<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/luminic.visuals/?utm_source=ig_embed" data-instgrm-version="14" style="max-width:540px;width:100%;margin:0"><a href="https://www.instagram.com/luminic.visuals/">Bekijk op Instagram</a></blockquote>'; if (window.instgrm) window.instgrm.Embeds.process(); else { const s = document.createElement("script"); s.async = true; s.src = "https://www.instagram.com/embed.js"; document.body.append(s); } }; const calm = matchMedia("(prefers-reduced-motion: reduce)").matches; if (!calm && !["#foto","#video","#contact"].includes(location.hash)) { document.body.classList.add("intro"); setTimeout(() => document.body.classList.remove("intro"), 5500); } const io = calm ? null : new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -6% 0px", threshold:.05}); const reveal = els => els.forEach((el, i) => { if (!io) return; el.classList.add("rv"); el.style.transitionDelay = ((i % 4) * 90) + "ms"; io.observe(el); }); reveal([...document.querySelectorAll(".tile")]);
 
-const bg = (el, it) => { const t = it && thumb(it); if (t) el.style.setProperty("--img", `url("${t}")`); };
+const bg = (el, it) => { const t = it && (it.type ? thumb(it) : it.src); if (t) el.style.setProperty("--img", `url("${t}")`); };
 const hv = $("#hv"), homeEl = $("#home");
 bg($("#tf"), M.foto[0]); bg($("#tv"), M.video[0]);
 $("#dn").onclick = () => $("#keuze").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
