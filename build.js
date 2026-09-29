@@ -19,12 +19,12 @@ function walk(rel) {
       video.push({ type: 'video', src: url([...rel, f]), poster: p ? url([...rel, p]) : '', title: title(base(f)) });
     } else if (IMG.test(f) && !vb.has(base(f))) {
       foto.push({ src: url([...rel, f]) });
-    } else if (f.toLowerCase() === 'youtube.txt') {
+    } else if (['links.txt', 'youtube.txt'].includes(f.toLowerCase())) {
       for (const line of fs.readFileSync(path.join(dir, f), 'utf8').split(/\r?\n/)) {
         if (!line.trim() || line.trim().startsWith('#')) continue;
-        const [link, t = ''] = line.split('|').map(s => s.trim());
+        const [link, t = '', pp = ''] = line.split('|').map(s => s.trim()); const poster = pp ? url([...rel, pp]) : ''; const ig = link.match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/i);
         const m = link.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || link.match(/^([\w-]{11})$/);
-        if (m) video.push({ type: 'yt', src: m[1], title: t });
+        if (ig) video.push({ type: 'ig', src: (ig[1].toLowerCase().startsWith('reel') ? 'reel' : ig[1].toLowerCase()) + '/' + ig[2], title: t, poster }); else if (m) video.push({ type: 'yt', src: m[1], title: t, poster });
       }
     }
   }
