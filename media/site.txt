@@ -1,5 +1,5 @@
 # Teksten van de site. Formaat: sleutel: tekst. Regels met # worden genegeerd.
-over: Luminic Visuals maakt foto en video voor motoren, auto's, events en muziek. Gevestigd in Limburg. Stuur een mail met datum, locatie en wat je nodig hebt.
+over: Luminic Visuals maakt foto en video voor motoren, auto's, events en muziek. Gevestigd in België.
 # Logo over de video op de startpagina: midden (klein en subtiel, standaard), linksonder, of header (geen logo over de video).
 logo: midden
 # Quote op de startpagina onder het logo. Leeg laten = geen quote.
