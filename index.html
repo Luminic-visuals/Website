@@ -117,7 +117,7 @@ if (S.over) $("#over").textContent = S.over; $("#q").textContent = "quote" in S 
 
 const bg = (el, it) => { const t = it && (it.type ? thumb(it) : it.src); if (t) el.style.setProperty("--img", `url("${t}")`); };
 const hv = $("#hv"), homeEl = $("#home");
-bg($("#tf"), M.foto[0]); bg($("#tv"), M.video[0]);
+const cover = (n, l) => { n = (n || "").trim().toLowerCase(); return (n && l.find(x => decodeURIComponent(x.src).split("/").pop().toLowerCase() === n)) || l[0]; }; bg($("#tf"), cover(S.fotocover, M.foto)); bg($("#tv"), M.video[0]);
 $("#dn").onclick = () => $("#keuze").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
 const heroPick = () => { const p = matchMedia("(max-aspect-ratio: 1/1)").matches, L = {src: S.hero, poster: S.heroPoster}, P = {src: S.heroMobile, poster: S.heroMobilePoster}, a = p ? P : L, b = p ? L : P; return (a.src || a.poster) ? a : b; }; function setHero() { const p = heroPick(); if (p.poster) hv.poster = p.poster; else hv.removeAttribute("poster"); if (p.src && !calm) { if (hv.getAttribute("src") !== p.src) { hv.src = p.src; if (document.body.dataset.v === "home") hv.play().catch(() => {}); } } else if (!p.poster) homeEl.classList.add("no"); } setHero(); matchMedia("(max-aspect-ratio: 1/1)").addEventListener("change", setHero);
 
