@@ -109,7 +109,7 @@ dialog::backdrop{background:rgba(8,10,12,.95)}
 const M = typeof MEDIA !== "undefined" ? MEDIA : {foto:[], video:[]};
 const $ = s => document.querySelector(s), grid = $("#grid"), lb = $("#lb"), stage = $("#stage");
 const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const thumb = i => i.type==="yt" ? (i.poster || `https://i.ytimg.com/vi/${i.src}/maxresdefault.jpg`) : !i.type ? (i.thumb || i.src) : i.poster;
+const thumb = i => i.type==="yt" ? (i.poster || `https://i.ytimg.com/vi/${i.src}/${i.hq ? "hqdefault" : "maxresdefault"}.jpg`) : !i.type ? (i.thumb || i.src) : i.poster;
 let list = [], idx = 0;
 const S = typeof SITE !== "undefined" ? SITE : {};
 document.body.dataset.logo = ["midden","header","linksonder"].includes(S.logo) ? S.logo : "midden"; const setLS = v => { document.body.dataset.ls = v; document.body.classList.remove("lg"); clearTimeout(window._lg); if (v === "intro") window._lg = setTimeout(() => document.body.classList.add("lg"), 4200); }; window.setLS = setLS; setLS(["zacht","contrast","intro","klassiek"].includes(S.logostijl) ? S.logostijl : "contrast");
