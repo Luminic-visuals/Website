@@ -17,7 +17,7 @@ function walk(rel) {
     if (VID.test(f)) {
       const p = files.find(x => IMG.test(x) && base(x) === base(f));
       video.push({ type: 'video', src: url([...rel, f]), poster: p ? url([...rel, p]) : '', title: title(base(f)), v: /(staand|portrait|vertical|verticaal|9x16)/i.test(f) });
-    } else if (IMG.test(f) && !vb.has(base(f))) {
+    } else if (IMG.test(f) && !vb.has(base(f)) && rel[0] === 'Foto') {
       foto.push({ src: url([...rel, f]) });
     } else if (['links.txt', 'youtube.txt'].includes(f.toLowerCase())) {
       for (const line of fs.readFileSync(path.join(dir, f), 'utf8').split(/\r?\n/)) {
