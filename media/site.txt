@@ -1,5 +1,5 @@
 # Teksten van de site. Formaat: sleutel: tekst. Regels met # worden genegeerd.
-over: Luminic Visuals verzorgt foto- en videoproductie voor merken, bedrijven en evenementen. Met meer dan zeven jaar ervaring vertaal ik ideeën naar beeld dat overtuigt: helder, zorgvuldig en volledig afgestemd op de opdracht. Gevestigd in België.
+over: Luminic Visuals verzorgt foto- en videoproductie voor merken, bedrijven en evenementen, en ook voor mensen: van portretten tot persoonlijke shoots. Met meer dan zeven jaar ervaring vertaal ik ideeën naar beeld dat overtuigt: helder, zorgvuldig en volledig afgestemd op de opdracht. Gevestigd in België.
 # Logo over de video op de startpagina: midden (klein en subtiel, standaard), linksonder, of header (geen logo over de video).
 logo: midden
 # Quote op de startpagina onder het logo. Leeg laten = geen quote.
