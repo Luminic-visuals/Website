@@ -22,9 +22,9 @@ function walk(rel) {
     } else if (['links.txt', 'youtube.txt'].includes(f.toLowerCase())) {
       for (const line of fs.readFileSync(path.join(dir, f), 'utf8').split(/\r?\n/)) {
         if (!line.trim() || line.trim().startsWith('#')) continue;
-        const parts = line.split('|').map(s => s.trim()), link = parts[0], t = parts[1] || '', ex = parts.slice(2).filter(Boolean); const FLAG = /^(staand|portrait|vertical|verticaal)$/i, vert = ex.some(x => FLAG.test(x)), pp = ex.find(x => !FLAG.test(x)); const poster = pp ? url([...rel, pp]) : ''; const ig = link.match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/i);
+        const parts = line.split('|').map(s => s.trim()), link = parts[0], t = parts[1] || '', ex = parts.slice(2).filter(Boolean); const FLAG = /^(staand|portrait|vertical|verticaal|hq)$/i, vert = ex.some(x => /^(staand|portrait|vertical|verticaal)$/i.test(x)), hq = ex.some(x => /^hq$/i.test(x)), pp = ex.find(x => !FLAG.test(x)); const poster = pp ? url([...rel, pp]) : ''; const ig = link.match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/i);
         const m = link.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || link.match(/^([\w-]{11})$/);
-        if (ig) { const kind = ig[1].toLowerCase().startsWith('reel') ? 'reel' : ig[1].toLowerCase(); video.push({ type: 'ig', src: kind + '/' + ig[2], title: t, poster, v: vert || kind === 'reel' }); } else if (m) video.push({ type: 'yt', src: m[1], title: t, poster, v: vert || /shorts\//i.test(link) });
+        if (ig) { const kind = ig[1].toLowerCase().startsWith('reel') ? 'reel' : ig[1].toLowerCase(); video.push({ type: 'ig', src: kind + '/' + ig[2], title: t, poster, v: vert || kind === 'reel' }); } else if (m) video.push({ type: 'yt', src: m[1], title: t, poster, hq, v: vert || /shorts\//i.test(link) });
       }
     }
   }
