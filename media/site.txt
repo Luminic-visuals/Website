@@ -9,6 +9,7 @@ logostijl: contrast
 
 # Achtergrondfoto van de FOTO-knop op de startpagina: bestandsnaam uit media/Foto. Leeg = eerste foto.
 fotocover: _DSC4844.jpg
+videocover: DSC09838.jpg
 # Juridische gegevens: verschijnen op de pagina's Privacy en Juridisch. Laat leeg wat niet van toepassing is.
 naam:
 adres:
